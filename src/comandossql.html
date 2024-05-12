@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> TREINAMENTO SQL</title>
+</head>
+<body>
+<h1>TREINAMENTO SQL</h1>
+
+
+
+<p>Olá, Edson Júnior. Hoje é dia 12 de Maio, Domingo, em pleno dia das mães.
+Sim, nessa data você iniciou esse projeto. Ainda não sei como está, se você esqueceu ou não,
+mas essa mensagem ficará aqui para o seu eu do futuro. Tenha um bom estudo, até mais!</p>
+
+
+<h2> ESPECIFICAÇÕES</h2>
+    <p> São códigos SQL que você irá definir o tipo de dado que você estará movimentando.</p>
+
+    <h3> NUMÉRICOS </h3>
+<ul>
+    <li>TINYINT = Geralmente armazena 1 byte (8 bits), permitindo representar números inteiros no intervalo de -128 a 127 (ou 0 a 255 se for sem sinal).</li>
+    <br>
+    <li>SMALLINT = Geralmente armazena 2 bytes (16 bits), permitindo representar números inteiros no intervalo de -32.768 a 32.767 (ou 0 a 65.535 se for sem sinal).</li>
+    <br>
+    <li>INT = Geralmente armazena 4 bytes (32 bits), permitindo representar números inteiros no intervalo de -2.147.483.648 a 2.147.483.647 (ou 0 a 4.294.967.295 se for sem sinal).</li>
+    <br>
+    <li>BIGINT = Geralmente armazena 8 bytes (64 bits), permitindo representar números inteiros no intervalo de -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 (ou 0 a 18.446.744.073.709.551.615 se for sem sinal).</li>
+    <br>
+    <li>NUMERIC/DECIMAL = A quantidade de bytes que um tipo decimal ocupa depende do número total de dígitos e do número de dígitos à direita do ponto decimal que você escolher. Em sistemas de banco de dados, a precisão e a escala são usadas para especificar esses detalhes:</li>
+</ul>
+
+<h3> CARACTERES </h3>
+
+<ul>
+    <li> CHAR = Armazena dados adicionados por String de forma que, independente do valor real da String, ele armazenará o valor alocado a ele.</li>
+    <br>
+    <li> VARCHAR = Diferente do CHAR, ao adicionar um valor real menor do que o definido para ele, ele reduz, armazenando apenas o que entregue pela String.</li>
+</ul>
+
+<h2> RESTRIÇÕES </h2>
+<p> São códigos SQL que você irá restringir dados que forem adicionados dentro da coluna.</p>
+
+<ul>
+    <li> PRIMARY KEY = Uma restrição que garante que os valores em uma ou mais colunas de uma tabela sejam únicos e não nulos. A chave primária identifica exclusivamente cada registro em uma tabela.</li>
+    <br>
+    <li> NOT NULL = Faz com que não seja possível deixar a coluna em branco, exijindo sempre um dado com base na especificação dela.</li>
+    <br>
+    <li> AUTO INCREMENT = Faz com que a coluna seja preenchina automaticamente com base na espeficação dela.</li>
+    <br>
+    <li> FOREIGN KEY = Uma restrição que define um relacionamento entre duas tabelas. Ela garante que os valores em uma coluna (a chave estrangeira) correspondam aos valores em outra tabela (a chave primária ou outra chave única).</li>
+    <br>
+    <li> UNIQUE = Uma restrição que garante que todos os valores em uma coluna (ou um conjunto de colunas) sejam únicos. Essa restrição permite valores nulos, mas apenas um valor nulo é permitido.</li>
+    <br>
+    <li> CHECK = Uma restrição que verifica se os valores em uma coluna satisfazem uma condição específica. Por exemplo, você pode definir uma restrição de verificação para garantir que os valores em uma coluna numérica sejam maiores que zero.</li>
+</ul>
+
+<h2> OUTRAS OPÇÕES </h2>
+
+<ul>
+    <li>DEFAULT = Uma restrição que define um valor padrão para uma coluna, que será usado quando nenhum valor for especificado durante a inserção de um novo registro.</li>
+    <br>
+    <li>INDEX = Uma restrição que cria um índice para uma ou mais colunas de uma tabela, permitindo consultas mais eficientes ao acessar os dados dessa coluna.</li>
+    <br>
+    <li>CASCADE = Uma opção que pode ser usada em conjunto com restrições como DELETE ou UPDATE, especificando que as ações de exclusão ou atualização em uma tabela devem ser propagadas para tabelas relacionadas.</li>
+    <br>
+    <li>DISABLE/ENABLE = Restrições que podem ser desabilitadas temporariamente e depois reabilitadas. Isso pode ser útil durante operações de manutenção ou migração de dados.</li>
+    <br>
+    <li>DEFERRABLE = Uma restrição que pode ser adiada até o final de uma transação, permitindo que as restrições sejam verificadas apenas no final da transação.</li>
+</ul>
+
+<br>
+<hr>
+<br>
+
+<h2>CREATE DATABASE</h2>
+<p>O comando <strong>CREATE DATABASE</strong> é usado para criar um novo banco de dados.</p>
+<pre>
+        <code>CREATE DATABASE nome_do_banco_de_dados;</code>
+    </pre>
+
+<hr>
+
+<h2>CREATE TABLE</h2>
+<p>O comando <strong>CREATE TABLE</strong> é usado para criar uma nova tabela em um banco de dados existente.</p>
+<pre>
+        <code>CREATE TABLE nome_da_tabela (
+            id INT PRIMARY KEY,
+            nome VARCHAR(50),
+            idade INT
+        );</code>
+    </pre>
+
+<hr>
+
+<h2> INSERT INTO</h2>
+<p> Comando utilizado para inserir algum dado nas colunas da tabela.</p>
+
+<pre>
+    <code>
+        INSERT INTO nome_da_tabela (usuario, senha)
+        VALUES ("usuario", "senha");
+    </code>
+</pre>
+<p>Nesse exemplo o administrador adicionou um novo usuário e senha apenas na tabela.</p>
+
+<hr>
+
+<h2>UPDATE</h2>
+<p>O comando <stron>UPDATE</stron> é usado para atualizar um dado já cadastrado na coluna da tabela.</p>
+    <pre>
+        <code>UPDATE nome_da_tabela
+                SET nome_da_coluna = NovoDado
+        </code>
+    </pre>
+
+        <p>Se na tabela tiver mais de 1 dado, você pode selecionar o dado que quer alterar utilizando como base, por exemplo, o id.</p>
+
+    <pre>
+        <code>UPDATE nome_da_tabela
+                SET nome_da_coluna = NovoDado
+                WHERE id = 1;
+        </code>
+    </pre>
+        <p>Nesse exemplo ele irá trocar apenas os dados da coluna que estiver com o id = 1. <br>
+        Caso você queira altera mais de um dado em apenas uma linha de código, basta separar por vírgulas.</p>
+
+    <pre>
+        <code>UPDATE nome_da_tabela
+                SET usuario = "novoNomeUsuario", senha = "novaSenha"
+                WHERE id = 1;
+        </code>
+    </pre>
+        <p>Nesse caso ele alterou o nome de usuário e a senha da pessoa com ID 1 dentro do banco de dados.</p>
+
+<hr>
+
+</body>
+</html>
