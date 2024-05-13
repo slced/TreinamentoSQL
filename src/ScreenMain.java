@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class ScreenMain {
@@ -46,6 +48,17 @@ public class ScreenMain {
         viewport.setView(contentPanel);
         scrollPane.setViewport(viewport);
         panelMain.add(scrollPane);
+
+        JButton buttonTreining = new JButton();
+        buttonTreining.setText("Praticar");
+        panelMain.add(buttonTreining);
+
+        buttonTreining.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ScreenPratica();
+            }
+        });
 
 
         screenMain.add(panelMain);
